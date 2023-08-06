@@ -1,15 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import {
   useFonts,
-  Inter_400Regular,
-  Inter_600SemiBold,
-  Inter_700Bold,
-  Inter_800ExtraBold,
-} from '@expo-google-fonts/inter';
+  Roboto_400Regular,
+  Roboto_700Bold,
+} from '@expo-google-fonts/roboto';
 import Loading from './src/components/Loading';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Routes } from './src/routes';
-import { colors } from '@theme/colors';
 import useAuthenticatedStore from '@stores/useAuthenticatedStore';
 // import OneSignal from 'react-native-onesignal';
 // OneSignal.setAppId("api-key");
@@ -19,10 +16,8 @@ const queryClient = new QueryClient();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    Inter_400Regular,
-    Inter_600SemiBold,
-    Inter_700Bold,
-    Inter_800ExtraBold,
+    Roboto_400Regular,
+    Roboto_700Bold,
   });
 
   if (!fontsLoaded) {
@@ -32,7 +27,7 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Routes />
-      <StatusBar style="light" backgroundColor={colors.primary} translucent />
+      <StatusBar style="light" backgroundColor={'#000'} translucent />
     </QueryClientProvider>
   );
 }

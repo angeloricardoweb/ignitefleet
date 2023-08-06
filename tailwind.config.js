@@ -4,16 +4,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        primary: '#00875F',
+        secondary: '#C4C4CC',
         background: '#09090a',
       },
       fontFamily: {
-        regular: 'Inter_400Regular',
-        semibold: 'Inter_600SemiBold',
-        bold: 'Inter_700Bold',
-        extrabold: 'Inter_800ExtraBold',
+        regular: 'Roboto_400Regular',
+        bold: 'Roboto_700Bold',
       },
     },
   },
   plugins: [],
 };
-

@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   Alert,
   ActivityIndicator,
+  ImageBackground,
 } from 'react-native';
 
 import React, { useState } from 'react';
@@ -19,7 +20,7 @@ import { colors } from '@theme/colors';
 import { formStyles, typography } from '@theme/globalStyles';
 import Logo from '../../../assets/icon.png';
 import { useLogin } from '@hooks/useLogin';
-
+import backgroundImg from '../../assets/background.png';
 export function LoginScreen() {
   const [email, onChangeEmail] = useState('');
   const [password, onChangePassword] = useState('');
@@ -37,32 +38,19 @@ export function LoginScreen() {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       className="flex-1"
     >
-      <LinearGradient
-        colors={['#0a91c7', '#0a91c7']}
-        start={[0.0, 0.5]}
-        end={[1.0, 0.5]}
-        locations={[0.0, 1.0]}
-        style={{ flex: 1 }}
-      >
+      <ImageBackground source={backgroundImg} className="flex-1">
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View
             style={{ flex: 1, justifyContent: 'center', marginVertical: 32 }}
           >
             <View style={{ paddingHorizontal: 40 }}>
               <View>
-                <Image
-                  style={{
-                    width: 90,
-                    height: 60,
-                    alignSelf: 'center',
-                  }}
-                  source={Logo}
-                  resizeMode="contain"
-                />
               </View>
               <View style={{ marginBottom: 32 }}>
-                <Text style={typography.titleClean}>Bem-vindo de volta</Text>
-                <Text style={typography.subTitleClean}>Logar na sua conta</Text>
+                <Text className='text-primary text-center text-2xl font-bold'>Ignite Fleet</Text>
+                <Text className='text-secondary text-center'>
+                  Gestão de uso de veiculos
+                </Text>
               </View>
               <View style={formStyles.compactInputWrapper}>
                 <FontAwesome
@@ -109,7 +97,7 @@ export function LoginScreen() {
             </Text>
           </TouchableOpacity>
         </View>
-      </LinearGradient>
+      </ImageBackground>
     </KeyboardAvoidingView>
   );
 }
